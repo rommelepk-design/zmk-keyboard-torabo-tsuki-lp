@@ -15,6 +15,17 @@
         };
     };
 
+    /* トラックボールのイベントをLayer 5のときだけスクロールに切り替える設定 */
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+
+        scroll {
+            layers = <5>; // Layer 5を指定
+            input-processors = <&zip_xy_to_scroll_mapper>; // カーソル移動をスクロールに変換
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
